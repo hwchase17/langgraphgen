@@ -1,0 +1,16 @@
+# agent_graph.yaml
+entrypoint: start
+nodes:
+  - name: start
+  - name: process
+  - name: decide
+edges:
+  - from: start
+    to: process
+  - from: process
+    to: decide
+  - from: decide
+    condition: check_decision
+    paths:
+      continue: process
+      end: end
